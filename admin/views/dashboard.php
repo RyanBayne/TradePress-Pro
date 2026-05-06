@@ -15,7 +15,14 @@ $license_status = TradePress_Pro_License::get_status();
 ?>
 
 <div class="wrap tradepress-pro-dashboard">
-    <h1><?php esc_html_e( 'TradePress Pro', 'tradepress-pro' ); ?></h1>
+    <h1>
+        <?php esc_html_e( 'TradePress Pro', 'tradepress-pro' ); ?>
+        <?php tradepress_pro_dev_icon(); ?>
+    </h1>
+
+    <?php if ( tradepress_pro_is_dev_mode() ) : ?>
+        <?php tradepress_pro_dev_notice(); ?>
+    <?php endif; ?>
 
     <?php if ( ! $license_valid ) : ?>
         <div class="notice notice-warning">

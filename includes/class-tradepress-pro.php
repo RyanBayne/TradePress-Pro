@@ -71,6 +71,9 @@ final class TradePress_Pro {
      * Include required files
      */
     private function includes() {
+        // Helper functions
+        require_once TRADEPRESS_PRO_DIR . 'includes/functions-helpers.php';
+        
         // Core classes
         require_once TRADEPRESS_PRO_DIR . 'includes/class-pro-loader.php';
         require_once TRADEPRESS_PRO_DIR . 'includes/class-pro-license.php';

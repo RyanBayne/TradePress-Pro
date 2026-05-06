@@ -19,6 +19,80 @@
     vertical-align: middle;
 }
 
+/* Pro Development Mode Icon */
+.tradepress-pro-dev-icon {
+    color: #f0a000;
+    font-size: 16px;
+    vertical-align: middle;
+    margin-left: 4px;
+    animation: tradepress-pro-dev-pulse 2s ease-in-out infinite;
+}
+
+@keyframes tradepress-pro-dev-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Pro Dev Wrapper */
+.tradepress-pro-dev-wrapper {
+    position: relative;
+    border: 2px dashed #f0a000;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 10px 0;
+    background: rgba(240, 160, 0, 0.05);
+}
+
+.tradepress-pro-dev-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(240, 160, 0, 0.3);
+    color: #f0a000;
+    font-size: 13px;
+}
+
+.tradepress-pro-dev-label .dashicons {
+    color: #f0a000;
+}
+
+.tradepress-pro-dev-label .tradepress-pro-badge {
+    margin-left: auto;
+}
+
+/* Pro Dev Item */
+.tradepress-pro-dev-item {
+    position: relative;
+}
+
+.tradepress-pro-dev-item::before {
+    content: "\f111"; /* dashicons-admin-tools */
+    font-family: dashicons;
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #f0a000;
+    font-size: 14px;
+}
+
+/* Pro Dev Notice */
+.tradepress-pro-dev-notice {
+    border-left-color: #f0a000;
+}
+
+.tradepress-pro-dev-notice .dashicons {
+    color: #f0a000;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
 /* Pro Feature Lock */
 .tradepress-pro-prompt {
     display: inline-flex;

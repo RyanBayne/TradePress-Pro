@@ -85,7 +85,7 @@ class TradePress_Pro_Loader {
             'class'       => 'TradePress_Pro_Directive_VIX_Regime',
             'file'        => TRADEPRESS_PRO_DIR . 'includes/directives/class-vix-regime.php',
             'premium'     => true,
-            'name'        => __( 'VIX Regime Scorer', 'tradepress-pro' ),
+            'name'        => __( 'VIX Regime Scorer', 'tradepress-pro' ) . tradepress_pro_dev_icon( false ),
             'description' => __( 'Scores based on VIX volatility regime (low, normal, elevated, crisis)', 'tradepress-pro' ),
             'category'    => 'volatility',
         ) );
@@ -114,7 +114,7 @@ class TradePress_Pro_Loader {
 
         // MVP: Forex Momentum template
         $templates['forex_momentum'] = array(
-            'name'        => __( 'Forex Momentum', 'tradepress-pro' ),
+            'name'        => __( 'Forex Momentum', 'tradepress-pro' ) . tradepress_pro_dev_icon( false ),
             'description' => __( 'Momentum-based strategy optimized for forex pairs with trend confirmation', 'tradepress-pro' ),
             'directives'  => array(
                 'macd'   => 35,
