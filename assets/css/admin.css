@@ -1,0 +1,127 @@
+/**
+ * TradePress Pro Admin Styles
+ *
+ * @package TradePressProâ€
+ * @since 1.0.0
+ */
+
+/* Pro Badge */
+.tradepress-pro-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+/* Pro Feature Lock */
+.tradepress-pro-prompt {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: #f0f0f1;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    color: #50575e;
+    font-size: 13px;
+}
+
+.tradepress-pro-prompt .dashicons {
+    color: #667eea;
+}
+
+/* Pro Card Styles */
+.tradepress-pro-card {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    padding: 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    border-radius: 4px;
+}
+
+.tradepress-pro-card h2 {
+    margin-top: 0;
+    font-size: 18px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Dashboard Grid */
+.tradepress-pro-dashboard .tradepress-pro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Feature List */
+.tradepress-pro-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tradepress-pro-features li {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tradepress-pro-features .dashicons-yes {
+    color: #46b450;
+}
+
+.tradepress-pro-features .dashicons-chart-line {
+    color: #999;
+}
+
+/* Links List */
+.tradepress-pro-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tradepress-pro-links li {
+    padding: 6px 0;
+}
+
+.tradepress-pro-links a {
+    text-decoration: none;
+    color: #2271b1;
+}
+
+.tradepress-pro-links a:hover {
+    color: #135e96;
+}
+
+/* License Status */
+.license-status {
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.license-status.valid {
+    color: #46b450;
+}
+
+.license-status.invalid {
+    color: #dc3232;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .tradepress-pro-dashboard .tradepress-pro-grid {
+        grid-template-columns: 1fr;
+    }
+}

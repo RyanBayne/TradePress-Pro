@@ -1,0 +1,58 @@
+# Copyright (C) 2025 Ryan Bayne
+# This file is distributed under the GPL-3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: TradePress Pro 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/RyanBayne/tradepress-pro/issues\n"
+"POT-Creation-Date: 2025-01-01 00:00:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: WP-CLI\n"
+
+#: tradepress-pro.php
+msgid "TradePress Pro requires the free TradePress plugin to be installed and activated."
+msgstr ""
+
+#: includes/class-tradepress-pro.php
+msgid "Cloning is forbidden."
+msgstr ""
+
+#: includes/class-tradepress-pro.php
+msgid "Unserializing instances is forbidden."
+msgstr ""
+
+#: includes/class-pro-loader.php
+msgid "VIX Regime Scorer"
+msgstr ""
+
+#: includes/class-pro-loader.php
+msgid "Scores based on VIX volatility regime (low, normal, elevated, crisis)"
+msgstr ""
+
+#: includes/class-pro-loader.php
+msgid "Forex Momentum"
+msgstr ""
+
+#: includes/class-pro-loader.php
+msgid "Momentum-based strategy optimized for forex pairs with trend confirmation"
+msgstr ""
+
+#: admin/class-pro-admin.php
+msgid "TradePress Pro"
+msgstr ""
+
+#: admin/class-pro-admin.php
+msgid "Pro Features"
+msgstr ""
+
+#: admin/class-pro-admin.php
+msgid "Pro License"
+msgstr ""
+
+#: admin/class-pro-admin.php
+msgid "License"
+msgstr ""
