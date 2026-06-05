@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * TradePress Pro License Handler
  *
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * TradePress_Pro_License Class
+ * TRADERSEES_License Class
  */
-class TradePress_Pro_License {
+class TRADERSEES_License {
 
     /**
      * Check if license is valid
@@ -31,19 +31,19 @@ class TradePress_Pro_License {
         // - Expiration date
         // - Site activation status
         
-        if ( defined( 'TRADEPRESS_PRO_DEV_MODE' ) && TRADEPRESS_PRO_DEV_MODE ) {
+        if ( defined( 'TRADERSEES_DEV_MODE' ) && TRADERSEES_DEV_MODE ) {
             return true;
         }
 
         // Freemius integration will go here
         // Example:
-        // if ( function_exists( 'tradepress_pro_fs' ) ) {
-        //     return tradepress_pro_fs()->is_premium() && tradepress_pro_fs()->can_use_premium_code();
+        // if ( function_exists( 'TRADERSEES_fs' ) ) {
+        //     return TRADERSEES_fs()->is_premium() && TRADERSEES_fs()->can_use_premium_code();
         // }
 
         // Check for stored license key (temporary until Freemius is integrated)
-        $license_key = get_option( 'tradepress_pro_license_key', '' );
-        $license_status = get_option( 'tradepress_pro_license_status', '' );
+        $license_key = get_option( 'TRADERSEES_license_key', '' );
+        $license_status = get_option( 'TRADERSEES_license_status', '' );
 
         return ! empty( $license_key ) && 'valid' === $license_status;
     }
@@ -59,7 +59,7 @@ class TradePress_Pro_License {
         }
 
         // TODO: Return actual license status from Freemius
-        return get_option( 'tradepress_pro_license_status', 'unknown' );
+        return get_option( 'TRADERSEES_license_status', 'unknown' );
     }
 
     /**
@@ -73,7 +73,7 @@ class TradePress_Pro_License {
         }
 
         // TODO: Get expiration from Freemius
-        return get_option( 'tradepress_pro_license_expiration', false );
+        return get_option( 'TRADERSEES_license_expiration', false );
     }
 
     /**
@@ -85,8 +85,8 @@ class TradePress_Pro_License {
     public static function activate( $license_key ) {
         // TODO: Implement Freemius activation
         // For now, simple storage
-        update_option( 'tradepress_pro_license_key', sanitize_text_field( $license_key ) );
-        update_option( 'tradepress_pro_license_status', 'valid' );
+        update_option( 'TRADERSEES_license_key', sanitize_text_field( $license_key ) );
+        update_option( 'TRADERSEES_license_status', 'valid' );
 
         return true;
     }
@@ -98,9 +98,9 @@ class TradePress_Pro_License {
      */
     public static function deactivate() {
         // TODO: Implement Freemius deactivation
-        delete_option( 'tradepress_pro_license_key' );
-        delete_option( 'tradepress_pro_license_status' );
-        delete_option( 'tradepress_pro_license_expiration' );
+        delete_option( 'TRADERSEES_license_key' );
+        delete_option( 'TRADERSEES_license_status' );
+        delete_option( 'TRADERSEES_license_expiration' );
 
         return true;
     }

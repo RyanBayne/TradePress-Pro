@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * TradePress Pro License View
  *
@@ -11,69 +11,69 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Handle license activation/deactivation
-if ( isset( $_POST['tradepress_pro_license_action'] ) && check_admin_referer( 'tradepress_pro_license' ) ) {
-    $action = sanitize_text_field( $_POST['tradepress_pro_license_action'] );
+if ( isset( $_POST['TRADERSEES_license_action'] ) && check_admin_referer( 'TRADERSEES_license' ) ) {
+    $action = sanitize_text_field( $_POST['TRADERSEES_license_action'] );
 
     if ( 'activate' === $action && isset( $_POST['license_key'] ) ) {
         $license_key = sanitize_text_field( $_POST['license_key'] );
-        $result = TradePress_Pro_License::activate( $license_key );
+        $result = TRADERSEES_License::activate( $license_key );
 
         if ( is_wp_error( $result ) ) {
             echo '<div class="notice notice-error"><p>' . esc_html( $result->get_error_message() ) . '</p></div>';
         } else {
-            echo '<div class="notice notice-success"><p>' . esc_html__( 'License activated successfully!', 'tradepress-pro' ) . '</p></div>';
+            echo '<div class="notice notice-success"><p>' . esc_html__( 'License activated successfully!', 'trader-sees' ) . '</p></div>';
         }
     } elseif ( 'deactivate' === $action ) {
-        TradePress_Pro_License::deactivate();
-        echo '<div class="notice notice-success"><p>' . esc_html__( 'License deactivated.', 'tradepress-pro' ) . '</p></div>';
+        TRADERSEES_License::deactivate();
+        echo '<div class="notice notice-success"><p>' . esc_html__( 'License deactivated.', 'trader-sees' ) . '</p></div>';
     }
 }
 
-$license_valid = TradePress_Pro_License::is_valid();
-$license_status = TradePress_Pro_License::get_status();
-$license_key = get_option( 'tradepress_pro_license_key', '' );
-$expiration = TradePress_Pro_License::get_expiration();
+$license_valid = TRADERSEES_License::is_valid();
+$license_status = TRADERSEES_License::get_status();
+$license_key = get_option( 'TRADERSEES_license_key', '' );
+$expiration = TRADERSEES_License::get_expiration();
 ?>
 
-<div class="wrap tradepress-pro-license">
-    <h1><?php esc_html_e( 'TradePress Pro License', 'tradepress-pro' ); ?></h1>
+<div class="wrap trader-sees-license">
+    <h1><?php esc_html_e( 'TradePress Pro License', 'trader-sees' ); ?></h1>
 
-    <div class="tradepress-pro-license-container">
+    <div class="trader-sees-license-container">
         <?php if ( $license_valid ) : ?>
             <!-- Active License -->
-            <div class="tradepress-pro-card license-active">
+            <div class="trader-sees-card license-active">
                 <h2>
                     <span class="dashicons dashicons-yes-alt"></span>
-                    <?php esc_html_e( 'License Active', 'tradepress-pro' ); ?>
+                    <?php esc_html_e( 'License Active', 'trader-sees' ); ?>
                 </h2>
 
                 <table class="form-table">
                     <tr>
-                        <th><?php esc_html_e( 'License Key:', 'tradepress-pro' ); ?></th>
+                        <th><?php esc_html_e( 'License Key:', 'trader-sees' ); ?></th>
                         <td>
                             <code><?php echo esc_html( substr( $license_key, 0, 8 ) . str_repeat( '*', strlen( $license_key ) - 12 ) . substr( $license_key, -4 ) ); ?></code>
                         </td>
                     </tr>
                     <tr>
-                        <th><?php esc_html_e( 'Status:', 'tradepress-pro' ); ?></th>
+                        <th><?php esc_html_e( 'Status:', 'trader-sees' ); ?></th>
                         <td>
-                            <span class="license-status-badge active"><?php esc_html_e( 'Active', 'tradepress-pro' ); ?></span>
+                            <span class="license-status-badge active"><?php esc_html_e( 'Active', 'trader-sees' ); ?></span>
                         </td>
                     </tr>
                     <?php if ( $expiration ) : ?>
                     <tr>
-                        <th><?php esc_html_e( 'Expires:', 'tradepress-pro' ); ?></th>
+                        <th><?php esc_html_e( 'Expires:', 'trader-sees' ); ?></th>
                         <td><?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $expiration ) ) ); ?></td>
                     </tr>
                     <?php endif; ?>
                 </table>
 
                 <form method="post">
-                    <?php wp_nonce_field( 'tradepress_pro_license' ); ?>
-                    <input type="hidden" name="tradepress_pro_license_action" value="deactivate">
+                    <?php wp_nonce_field( 'TRADERSEES_license' ); ?>
+                    <input type="hidden" name="TRADERSEES_license_action" value="deactivate">
                     <p>
                         <button type="submit" class="button button-secondary">
-                            <?php esc_html_e( 'Deactivate License', 'tradepress-pro' ); ?>
+                            <?php esc_html_e( 'Deactivate License', 'trader-sees' ); ?>
                         </button>
                     </p>
                 </form>
@@ -81,22 +81,22 @@ $expiration = TradePress_Pro_License::get_expiration();
 
         <?php else : ?>
             <!-- Inactive License -->
-            <div class="tradepress-pro-card license-inactive">
+            <div class="trader-sees-card license-inactive">
                 <h2>
                     <span class="dashicons dashicons-warning"></span>
-                    <?php esc_html_e( 'Activate Your License', 'tradepress-pro' ); ?>
+                    <?php esc_html_e( 'Activate Your License', 'trader-sees' ); ?>
                 </h2>
 
-                <p><?php esc_html_e( 'Enter your license key to unlock all TradePress Pro features.', 'tradepress-pro' ); ?></p>
+                <p><?php esc_html_e( 'Enter your license key to unlock all TradePress Pro features.', 'trader-sees' ); ?></p>
 
                 <form method="post">
-                    <?php wp_nonce_field( 'tradepress_pro_license' ); ?>
-                    <input type="hidden" name="tradepress_pro_license_action" value="activate">
+                    <?php wp_nonce_field( 'TRADERSEES_license' ); ?>
+                    <input type="hidden" name="TRADERSEES_license_action" value="activate">
 
                     <table class="form-table">
                         <tr>
                             <th>
-                                <label for="license_key"><?php esc_html_e( 'License Key:', 'tradepress-pro' ); ?></label>
+                                <label for="license_key"><?php esc_html_e( 'License Key:', 'trader-sees' ); ?></label>
                             </th>
                             <td>
                                 <input
@@ -104,7 +104,7 @@ $expiration = TradePress_Pro_License::get_expiration();
                                     id="license_key"
                                     name="license_key"
                                     class="regular-text"
-                                    placeholder="<?php esc_attr_e( 'Enter your license key', 'tradepress-pro' ); ?>"
+                                    placeholder="<?php esc_attr_e( 'Enter your license key', 'trader-sees' ); ?>"
                                     required
                                 >
                             </td>
@@ -113,19 +113,19 @@ $expiration = TradePress_Pro_License::get_expiration();
 
                     <p class="submit">
                         <button type="submit" class="button button-primary">
-                            <?php esc_html_e( 'Activate License', 'tradepress-pro' ); ?>
+                            <?php esc_html_e( 'Activate License', 'trader-sees' ); ?>
                         </button>
                     </p>
                 </form>
 
-                <div class="tradepress-pro-license-help">
-                    <h3><?php esc_html_e( 'Need a License?', 'tradepress-pro' ); ?></h3>
+                <div class="trader-sees-license-help">
+                    <h3><?php esc_html_e( 'Need a License?', 'trader-sees' ); ?></h3>
                     <p>
                         <?php
                         printf(
                             /* translators: %s: Purchase URL */
-                            __( '<a href="%s" target="_blank">Purchase a license</a> to unlock all Pro features.', 'tradepress-pro' ),
-                            'https://github.com/RyanBayne/tradepress-pro'
+                            __( '<a href="%s" target="_blank">Purchase a license</a> to unlock all Pro features.', 'trader-sees' ),
+                            'https://github.com/RyanBayne/trader-sees'
                         );
                         ?>
                     </p>
@@ -133,8 +133,8 @@ $expiration = TradePress_Pro_License::get_expiration();
                         <?php
                         printf(
                             /* translators: %s: Support URL */
-                            __( 'Lost your license key? <a href="%s" target="_blank">Contact support</a>.', 'tradepress-pro' ),
-                            'https://github.com/RyanBayne/tradepress-pro/issues'
+                            __( 'Lost your license key? <a href="%s" target="_blank">Contact support</a>.', 'trader-sees' ),
+                            'https://github.com/RyanBayne/trader-sees/issues'
                         );
                         ?>
                     </p>
@@ -143,11 +143,11 @@ $expiration = TradePress_Pro_License::get_expiration();
         <?php endif; ?>
 
         <!-- Development Mode Notice -->
-        <?php if ( defined( 'TRADEPRESS_PRO_DEV_MODE' ) && TRADEPRESS_PRO_DEV_MODE ) : ?>
+        <?php if ( defined( 'TRADERSEES_DEV_MODE' ) && TRADERSEES_DEV_MODE ) : ?>
             <div class="notice notice-info">
                 <p>
-                    <strong><?php esc_html_e( 'Development Mode Active', 'tradepress-pro' ); ?></strong><br>
-                    <?php esc_html_e( 'License validation is bypassed. All Pro features are available.', 'tradepress-pro' ); ?>
+                    <strong><?php esc_html_e( 'Development Mode Active', 'trader-sees' ); ?></strong><br>
+                    <?php esc_html_e( 'License validation is bypassed. All Pro features are available.', 'trader-sees' ); ?>
                 </p>
             </div>
         <?php endif; ?>
@@ -155,19 +155,19 @@ $expiration = TradePress_Pro_License::get_expiration();
 </div>
 
 <style>
-.tradepress-pro-license-container {
+.trader-sees-license-container {
     max-width: 800px;
     margin-top: 20px;
 }
 
-.tradepress-pro-card {
+.trader-sees-card {
     background: #fff;
     border: 1px solid #ccd0d4;
     padding: 20px;
     box-shadow: 0 1px 1px rgba(0,0,0,.04);
 }
 
-.tradepress-pro-card h2 {
+.trader-sees-card h2 {
     margin-top: 0;
     display: flex;
     align-items: center;
@@ -196,13 +196,13 @@ $expiration = TradePress_Pro_License::get_expiration();
     color: #fff;
 }
 
-.tradepress-pro-license-help {
+.trader-sees-license-help {
     margin-top: 30px;
     padding-top: 20px;
     border-top: 1px solid #ddd;
 }
 
-.tradepress-pro-license-help h3 {
+.trader-sees-license-help h3 {
     margin-top: 0;
 }
 </style>

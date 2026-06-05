@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * TradePress Pro Helper Functions
  *
@@ -15,8 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @return bool
  */
-function tradepress_pro_is_dev_mode() {
-    return defined( 'TRADEPRESS_PRO_DEV_MODE' ) && TRADEPRESS_PRO_DEV_MODE;
+function TRADERSEES_is_dev_mode() {
+    return defined( 'TRADERSEES_DEV_MODE' ) && TRADERSEES_DEV_MODE;
 }
 
 /**
@@ -26,12 +26,12 @@ function tradepress_pro_is_dev_mode() {
  * @param bool $echo Whether to echo or return
  * @return string|void
  */
-function tradepress_pro_dev_icon( $echo = true ) {
-    if ( ! tradepress_pro_is_dev_mode() ) {
+function TRADERSEES_dev_icon( $echo = true ) {
+    if ( ! TRADERSEES_is_dev_mode() ) {
         return '';
     }
 
-    $icon = '<span class="dashicons dashicons-admin-tools tradepress-pro-dev-icon" title="' . esc_attr__( 'Pro Feature (Development Mode)', 'tradepress-pro' ) . '"></span>';
+    $icon = '<span class="dashicons dashicons-admin-tools trader-sees-dev-icon" title="' . esc_attr__( 'Pro Feature (Development Mode)', 'trader-sees' ) . '"></span>';
 
     if ( $echo ) {
         echo $icon;
@@ -47,11 +47,11 @@ function tradepress_pro_dev_icon( $echo = true ) {
  * @param bool $echo Whether to echo or return
  * @return string|void
  */
-function tradepress_pro_badge( $show_dev_icon = true, $echo = true ) {
-    $badge = '<span class="tradepress-pro-badge">' . esc_html__( 'PRO', 'tradepress-pro' ) . '</span>';
+function TRADERSEES_badge( $show_dev_icon = true, $echo = true ) {
+    $badge = '<span class="trader-sees-badge">' . esc_html__( 'PRO', 'trader-sees' ) . '</span>';
     
-    if ( $show_dev_icon && tradepress_pro_is_dev_mode() ) {
-        $badge .= ' ' . tradepress_pro_dev_icon( false );
+    if ( $show_dev_icon && TRADERSEES_is_dev_mode() ) {
+        $badge .= ' ' . TRADERSEES_dev_icon( false );
     }
 
     if ( $echo ) {
@@ -69,18 +69,18 @@ function tradepress_pro_badge( $show_dev_icon = true, $echo = true ) {
  * @param string $label Optional label for the feature
  * @return string
  */
-function tradepress_pro_dev_wrap( $content, $label = '' ) {
-    if ( ! tradepress_pro_is_dev_mode() ) {
+function TRADERSEES_dev_wrap( $content, $label = '' ) {
+    if ( ! TRADERSEES_is_dev_mode() ) {
         return $content;
     }
 
-    $output = '<div class="tradepress-pro-dev-wrapper">';
+    $output = '<div class="trader-sees-dev-wrapper">';
     
     if ( ! empty( $label ) ) {
-        $output .= '<div class="tradepress-pro-dev-label">';
+        $output .= '<div class="trader-sees-dev-label">';
         $output .= '<span class="dashicons dashicons-admin-tools"></span> ';
         $output .= '<strong>' . esc_html( $label ) . '</strong>';
-        $output .= ' <span class="tradepress-pro-badge">PRO</span>';
+        $output .= ' <span class="trader-sees-badge">PRO</span>';
         $output .= '</div>';
     }
     
@@ -96,15 +96,15 @@ function tradepress_pro_dev_wrap( $content, $label = '' ) {
  * @param array|string $classes Existing classes
  * @return array|string Modified classes
  */
-function tradepress_pro_dev_class( $classes = array() ) {
-    if ( ! tradepress_pro_is_dev_mode() ) {
+function TRADERSEES_dev_class( $classes = array() ) {
+    if ( ! TRADERSEES_is_dev_mode() ) {
         return $classes;
     }
 
     if ( is_array( $classes ) ) {
-        $classes[] = 'tradepress-pro-dev-item';
+        $classes[] = 'trader-sees-dev-item';
     } else {
-        $classes .= ' tradepress-pro-dev-item';
+        $classes .= ' trader-sees-dev-item';
     }
 
     return $classes;
@@ -116,25 +116,25 @@ function tradepress_pro_dev_class( $classes = array() ) {
  *
  * @param string $feature_name Name of the feature
  */
-function tradepress_pro_dev_notice( $feature_name = '' ) {
-    if ( ! tradepress_pro_is_dev_mode() ) {
+function TRADERSEES_dev_notice( $feature_name = '' ) {
+    if ( ! TRADERSEES_is_dev_mode() ) {
         return;
     }
 
     ?>
-    <div class="notice notice-info tradepress-pro-dev-notice">
+    <div class="notice notice-info trader-sees-dev-notice">
         <p>
             <span class="dashicons dashicons-admin-tools"></span>
-            <strong><?php esc_html_e( 'Pro Development Mode:', 'tradepress-pro' ); ?></strong>
+            <strong><?php esc_html_e( 'Pro Development Mode:', 'trader-sees' ); ?></strong>
             <?php
             if ( ! empty( $feature_name ) ) {
                 printf(
                     /* translators: %s: Feature name */
-                    esc_html__( 'You are viewing the Pro feature: %s', 'tradepress-pro' ),
+                    esc_html__( 'You are viewing the Pro feature: %s', 'trader-sees' ),
                     '<code>' . esc_html( $feature_name ) . '</code>'
                 );
             } else {
-                esc_html_e( 'Pro features are visible for development.', 'tradepress-pro' );
+                esc_html_e( 'Pro features are visible for development.', 'trader-sees' );
             }
             ?>
         </p>
@@ -148,6 +148,6 @@ function tradepress_pro_dev_notice( $feature_name = '' ) {
  *
  * @return bool
  */
-function tradepress_pro_show_dev_indicators() {
-    return tradepress_pro_is_dev_mode() && is_admin();
+function TRADERSEES_show_dev_indicators() {
+    return TRADERSEES_is_dev_mode() && is_admin();
 }

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * TradePress Pro Admin Styles
  *
  * @package TradePressProâ€
@@ -6,7 +6,7 @@
  */
 
 /* Pro Badge */
-.tradepress-pro-badge {
+.trader-sees-badge {
     display: inline-block;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
@@ -20,15 +20,15 @@
 }
 
 /* Pro Development Mode Icon */
-.tradepress-pro-dev-icon {
+.trader-sees-dev-icon {
     color: #f0a000;
     font-size: 16px;
     vertical-align: middle;
     margin-left: 4px;
-    animation: tradepress-pro-dev-pulse 2s ease-in-out infinite;
+    animation: trader-sees-dev-pulse 2s ease-in-out infinite;
 }
 
-@keyframes tradepress-pro-dev-pulse {
+@keyframes trader-sees-dev-pulse {
     0%, 100% {
         opacity: 1;
     }
@@ -38,7 +38,7 @@
 }
 
 /* Pro Dev Wrapper */
-.tradepress-pro-dev-wrapper {
+.trader-sees-dev-wrapper {
     position: relative;
     border: 2px dashed #f0a000;
     border-radius: 4px;
@@ -47,7 +47,7 @@
     background: rgba(240, 160, 0, 0.05);
 }
 
-.tradepress-pro-dev-label {
+.trader-sees-dev-label {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -58,20 +58,20 @@
     font-size: 13px;
 }
 
-.tradepress-pro-dev-label .dashicons {
+.trader-sees-dev-label .dashicons {
     color: #f0a000;
 }
 
-.tradepress-pro-dev-label .tradepress-pro-badge {
+.trader-sees-dev-label .trader-sees-badge {
     margin-left: auto;
 }
 
 /* Pro Dev Item */
-.tradepress-pro-dev-item {
+.trader-sees-dev-item {
     position: relative;
 }
 
-.tradepress-pro-dev-item::before {
+.trader-sees-dev-item::before {
     content: "\f111"; /* dashicons-admin-tools */
     font-family: dashicons;
     position: absolute;
@@ -83,18 +83,18 @@
 }
 
 /* Pro Dev Notice */
-.tradepress-pro-dev-notice {
+.trader-sees-dev-notice {
     border-left-color: #f0a000;
 }
 
-.tradepress-pro-dev-notice .dashicons {
+.trader-sees-dev-notice .dashicons {
     color: #f0a000;
     vertical-align: middle;
     margin-right: 4px;
 }
 
 /* Pro Feature Lock */
-.tradepress-pro-prompt {
+.trader-sees-prompt {
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -106,12 +106,12 @@
     font-size: 13px;
 }
 
-.tradepress-pro-prompt .dashicons {
+.trader-sees-prompt .dashicons {
     color: #667eea;
 }
 
 /* Pro Card Styles */
-.tradepress-pro-card {
+.trader-sees-card {
     background: #fff;
     border: 1px solid #ccd0d4;
     padding: 20px;
@@ -119,7 +119,7 @@
     border-radius: 4px;
 }
 
-.tradepress-pro-card h2 {
+.trader-sees-card h2 {
     margin-top: 0;
     font-size: 18px;
     border-bottom: 1px solid #eee;
@@ -127,7 +127,7 @@
 }
 
 /* Dashboard Grid */
-.tradepress-pro-dashboard .tradepress-pro-grid {
+.trader-sees-dashboard .trader-sees-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
@@ -135,44 +135,44 @@
 }
 
 /* Feature List */
-.tradepress-pro-features {
+.trader-sees-features {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.tradepress-pro-features li {
+.trader-sees-features li {
     padding: 8px 0;
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.tradepress-pro-features .dashicons-yes {
+.trader-sees-features .dashicons-yes {
     color: #46b450;
 }
 
-.tradepress-pro-features .dashicons-chart-line {
+.trader-sees-features .dashicons-chart-line {
     color: #999;
 }
 
 /* Links List */
-.tradepress-pro-links {
+.trader-sees-links {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.tradepress-pro-links li {
+.trader-sees-links li {
     padding: 6px 0;
 }
 
-.tradepress-pro-links a {
+.trader-sees-links a {
     text-decoration: none;
     color: #2271b1;
 }
 
-.tradepress-pro-links a:hover {
+.trader-sees-links a:hover {
     color: #135e96;
 }
 
@@ -195,7 +195,7 @@
 
 /* Responsive */
 @media screen and (max-width: 782px) {
-    .tradepress-pro-dashboard .tradepress-pro-grid {
+    .trader-sees-dashboard .trader-sees-grid {
         grid-template-columns: 1fr;
     }
 }

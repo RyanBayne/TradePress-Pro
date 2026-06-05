@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * VIX Regime Scorer Directive
  *
@@ -17,9 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * TradePress_Pro_Directive_VIX_Regime Class
+ * TRADERSEES_DIRective_VIX_Regime Class
  */
-class TradePress_Pro_Directive_VIX_Regime {
+class TRADERSEES_DIRective_VIX_Regime {
 
     /**
      * Directive ID
@@ -72,7 +72,7 @@ class TradePress_Pro_Directive_VIX_Regime {
             return array(
                 'score'       => 0,
                 'confidence'  => 0,
-                'explanation' => __( 'VIX data not available', 'tradepress-pro' ),
+                'explanation' => __( 'VIX data not available', 'trader-sees' ),
                 'regime'      => 'unknown',
             );
         }
@@ -172,22 +172,22 @@ class TradePress_Pro_Directive_VIX_Regime {
         $explanations = array(
             'low'      => sprintf(
                 /* translators: %s: VIX value */
-                __( 'VIX at %s indicates low volatility. Market complacency may precede sudden moves.', 'tradepress-pro' ),
+                __( 'VIX at %s indicates low volatility. Market complacency may precede sudden moves.', 'trader-sees' ),
                 number_format( $vix_value, 2 )
             ),
             'normal'   => sprintf(
                 /* translators: %s: VIX value */
-                __( 'VIX at %s indicates normal volatility. Healthy market conditions.', 'tradepress-pro' ),
+                __( 'VIX at %s indicates normal volatility. Healthy market conditions.', 'trader-sees' ),
                 number_format( $vix_value, 2 )
             ),
             'elevated' => sprintf(
                 /* translators: %s: VIX value */
-                __( 'VIX at %s indicates elevated volatility. Exercise caution.', 'tradepress-pro' ),
+                __( 'VIX at %s indicates elevated volatility. Exercise caution.', 'trader-sees' ),
                 number_format( $vix_value, 2 )
             ),
             'crisis'   => sprintf(
                 /* translators: %s: VIX value */
-                __( 'VIX at %s indicates crisis-level volatility. High risk environment.', 'tradepress-pro' ),
+                __( 'VIX at %s indicates crisis-level volatility. High risk environment.', 'trader-sees' ),
                 number_format( $vix_value, 2 )
             ),
         );

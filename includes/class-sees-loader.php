@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * TradePress Pro Loader
  *
@@ -13,21 +13,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * TradePress_Pro_Loader Class
+ * TRADERSEES_Loader Class
  */
-class TradePress_Pro_Loader {
+class TRADERSEES_Loader {
 
     /**
      * The single instance of the class
      *
-     * @var TradePress_Pro_Loader
+     * @var TRADERSEES_Loader
      */
     protected static $_instance = null;
 
     /**
      * Main instance
      *
-     * @return TradePress_Pro_Loader
+     * @return TRADERSEES_Loader
      */
     public static function instance() {
         if ( is_null( self::$_instance ) ) {
@@ -48,7 +48,7 @@ class TradePress_Pro_Loader {
      */
     private function init_hooks() {
         // Register Pro as active with core
-        add_filter( 'tradepress_pro_is_active', array( $this, 'confirm_pro_active' ) );
+        add_filter( 'TRADERSEES_is_active', array( $this, 'confirm_pro_active' ) );
 
         // Register directives with core
         add_action( 'tradepress_register_directives', array( $this, 'register_directives' ) );
@@ -63,7 +63,7 @@ class TradePress_Pro_Loader {
      * @return bool
      */
     public function confirm_pro_active() {
-        return TradePress_Pro_License::is_valid();
+        return TRADERSEES_License::is_valid();
     }
 
     /**
@@ -71,7 +71,7 @@ class TradePress_Pro_Loader {
      */
     public function register_directives() {
         // Only register if license is valid
-        if ( ! TradePress_Pro_License::is_valid() ) {
+        if ( ! TRADERSEES_License::is_valid() ) {
             return;
         }
 
@@ -82,11 +82,11 @@ class TradePress_Pro_Loader {
 
         // MVP: VIX Regime Scorer
         tradepress_register_directive( 'vix_regime', array(
-            'class'       => 'TradePress_Pro_Directive_VIX_Regime',
-            'file'        => TRADEPRESS_PRO_DIR . 'includes/directives/class-vix-regime.php',
+            'class'       => 'TRADERSEES_DIRective_VIX_Regime',
+            'file'        => TRADERSEES_DIR . 'includes/directives/class-vix-regime.php',
             'premium'     => true,
-            'name'        => __( 'VIX Regime Scorer', 'tradepress-pro' ) . tradepress_pro_dev_icon( false ),
-            'description' => __( 'Scores based on VIX volatility regime (low, normal, elevated, crisis)', 'tradepress-pro' ),
+            'name'        => __( 'VIX Regime Scorer', 'trader-sees' ) . TRADERSEES_dev_icon( false ),
+            'description' => __( 'Scores based on VIX volatility regime (low, normal, elevated, crisis)', 'trader-sees' ),
             'category'    => 'volatility',
         ) );
 
@@ -108,14 +108,14 @@ class TradePress_Pro_Loader {
      */
     public function register_strategy_templates( $templates ) {
         // Only register if license is valid
-        if ( ! TradePress_Pro_License::is_valid() ) {
+        if ( ! TRADERSEES_License::is_valid() ) {
             return $templates;
         }
 
         // MVP: Forex Momentum template
         $templates['forex_momentum'] = array(
-            'name'        => __( 'Forex Momentum', 'tradepress-pro' ) . tradepress_pro_dev_icon( false ),
-            'description' => __( 'Momentum-based strategy optimized for forex pairs with trend confirmation', 'tradepress-pro' ),
+            'name'        => __( 'Forex Momentum', 'trader-sees' ) . TRADERSEES_dev_icon( false ),
+            'description' => __( 'Momentum-based strategy optimized for forex pairs with trend confirmation', 'trader-sees' ),
             'directives'  => array(
                 'macd'   => 35,
                 'ema'    => 25,

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * TradePress Pro Admin
  *
@@ -13,21 +13,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * TradePress_Pro_Admin Class
+ * TRADERSEES_Admin Class
  */
-class TradePress_Pro_Admin {
+class TRADERSEES_Admin {
 
     /**
      * The single instance of the class
      *
-     * @var TradePress_Pro_Admin
+     * @var TRADERSEES_Admin
      */
     protected static $_instance = null;
 
     /**
      * Main instance
      *
-     * @return TradePress_Pro_Admin
+     * @return TRADERSEES_Admin
      */
     public static function instance() {
         if ( is_null( self::$_instance ) ) {
@@ -67,20 +67,20 @@ class TradePress_Pro_Admin {
         // Add submenu under TradePress
         add_submenu_page(
             'tradepress', // Parent slug (TradePress core menu)
-            __( 'TradePress Pro', 'tradepress-pro' ),
-            __( 'Pro Features', 'tradepress-pro' ),
+            __( 'TradePress Pro', 'trader-sees' ),
+            __( 'Pro Features', 'trader-sees' ),
             'manage_options',
-            'tradepress-pro',
+            'trader-sees',
             array( $this, 'render_dashboard' )
         );
 
         // Add license settings page
         add_submenu_page(
             'tradepress',
-            __( 'Pro License', 'tradepress-pro' ),
-            __( 'License', 'tradepress-pro' ),
+            __( 'Pro License', 'trader-sees' ),
+            __( 'License', 'trader-sees' ),
             'manage_options',
-            'tradepress-pro-license',
+            'trader-sees-license',
             array( $this, 'render_license_page' )
         );
     }
@@ -92,22 +92,22 @@ class TradePress_Pro_Admin {
      */
     public function enqueue_admin_assets( $hook ) {
         // Only load on TradePress Pro pages
-        if ( strpos( $hook, 'tradepress-pro' ) === false ) {
+        if ( strpos( $hook, 'trader-sees' ) === false ) {
             return;
         }
 
         wp_enqueue_style(
-            'tradepress-pro-admin',
-            TRADEPRESS_PRO_URL . 'assets/css/admin.css',
+            'trader-sees-admin',
+            TRADERSEES_URL . 'assets/css/admin.css',
             array(),
-            TRADEPRESS_PRO_VERSION
+            TRADERSEES_VERSION
         );
 
         wp_enqueue_script(
-            'tradepress-pro-admin',
-            TRADEPRESS_PRO_URL . 'assets/js/admin.js',
+            'trader-sees-admin',
+            TRADERSEES_URL . 'assets/js/admin.js',
             array( 'jquery' ),
-            TRADEPRESS_PRO_VERSION,
+            TRADERSEES_VERSION,
             true
         );
     }
@@ -116,11 +116,11 @@ class TradePress_Pro_Admin {
      * Show activation notice
      */
     public function activation_notice() {
-        if ( ! get_transient( 'tradepress_pro_activated' ) ) {
+        if ( ! get_transient( 'TRADERSEES_activated' ) ) {
             return;
         }
 
-        delete_transient( 'tradepress_pro_activated' );
+        delete_transient( 'TRADERSEES_activated' );
 
         ?>
         <div class="notice notice-success is-dismissible">
@@ -128,8 +128,8 @@ class TradePress_Pro_Admin {
                 <?php
                 printf(
                     /* translators: %s: Link to license page */
-                    __( '<strong>TradePress Pro</strong> has been activated! <a href="%s">Enter your license key</a> to unlock all features.', 'tradepress-pro' ),
-                    admin_url( 'admin.php?page=tradepress-pro-license' )
+                    __( '<strong>TradePress Pro</strong> has been activated! <a href="%s">Enter your license key</a> to unlock all features.', 'trader-sees' ),
+                    admin_url( 'admin.php?page=trader-sees-license' )
                 );
                 ?>
             </p>
@@ -149,13 +149,13 @@ class TradePress_Pro_Admin {
      * Render Pro dashboard
      */
     public function render_dashboard() {
-        include TRADEPRESS_PRO_DIR . 'admin/views/dashboard.php';
+        include TRADERSEES_DIR . 'admin/views/dashboard.php';
     }
 
     /**
      * Render license page
      */
     public function render_license_page() {
-        include TRADEPRESS_PRO_DIR . 'admin/views/license.php';
+        include TRADERSEES_DIR . 'admin/views/license.php';
     }
 }

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Main TradePress Pro Class
  *
@@ -11,9 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Main TradePress_Pro Class
+ * Main TraderSEES Class
  */
-final class TradePress_Pro {
+final class TraderSEES {
 
     /**
      * Plugin version
@@ -25,16 +25,16 @@ final class TradePress_Pro {
     /**
      * The single instance of the class
      *
-     * @var TradePress_Pro
+     * @var TraderSEES
      */
     protected static $_instance = null;
 
     /**
-     * Main TradePress_Pro Instance
+     * Main TraderSEES Instance
      *
-     * Ensures only one instance of TradePress_Pro is loaded or can be loaded.
+     * Ensures only one instance of TraderSEES is loaded or can be loaded.
      *
-     * @return TradePress_Pro - Main instance
+     * @return TraderSEES - Main instance
      */
     public static function instance() {
         if ( is_null( self::$_instance ) ) {
@@ -47,24 +47,24 @@ final class TradePress_Pro {
      * Cloning is forbidden
      */
     public function __clone() {
-        _doing_it_wrong( __FUNCTION__, __( 'Cloning is forbidden.', 'tradepress-pro' ), '1.0.0' );
+        _doing_it_wrong( __FUNCTION__, __( 'Cloning is forbidden.', 'trader-sees' ), '1.0.0' );
     }
 
     /**
      * Unserializing instances of this class is forbidden
      */
     public function __wakeup() {
-        _doing_it_wrong( __FUNCTION__, __( 'Unserializing instances is forbidden.', 'tradepress-pro' ), '1.0.0' );
+        _doing_it_wrong( __FUNCTION__, __( 'Unserializing instances is forbidden.', 'trader-sees' ), '1.0.0' );
     }
 
     /**
-     * TradePress_Pro Constructor
+     * TraderSEES Constructor
      */
     public function __construct() {
         $this->includes();
         $this->init_hooks();
 
-        do_action( 'tradepress_pro_loaded' );
+        do_action( 'TRADERSEES_loaded' );
     }
 
     /**
@@ -72,15 +72,15 @@ final class TradePress_Pro {
      */
     private function includes() {
         // Helper functions
-        require_once TRADEPRESS_PRO_DIR . 'includes/functions-helpers.php';
+        require_once TRADERSEES_DIR . 'includes/functions-helpers.php';
         
         // Core classes
-        require_once TRADEPRESS_PRO_DIR . 'includes/class-pro-loader.php';
-        require_once TRADEPRESS_PRO_DIR . 'includes/class-pro-license.php';
+        require_once TRADERSEES_DIR . 'includes/class-pro-loader.php';
+        require_once TRADERSEES_DIR . 'includes/class-pro-license.php';
 
         // Admin
         if ( is_admin() ) {
-            require_once TRADEPRESS_PRO_DIR . 'admin/class-pro-admin.php';
+            require_once TRADERSEES_DIR . 'admin/class-pro-admin.php';
         }
     }
 
@@ -97,18 +97,18 @@ final class TradePress_Pro {
      */
     public function init() {
         // Before init action
-        do_action( 'tradepress_pro_before_init' );
+        do_action( 'TRADERSEES_before_init' );
 
         // Initialize the loader (registers directives, templates, etc.)
-        TradePress_Pro_Loader::instance();
+        TRADERSEES_Loader::instance();
 
         // Initialize admin
         if ( is_admin() ) {
-            TradePress_Pro_Admin::instance();
+            TRADERSEES_Admin::instance();
         }
 
         // Init action
-        do_action( 'tradepress_pro_init' );
+        do_action( 'TRADERSEES_init' );
     }
 
     /**
@@ -116,9 +116,9 @@ final class TradePress_Pro {
      */
     public function load_textdomain() {
         load_plugin_textdomain(
-            'tradepress-pro',
+            'trader-sees',
             false,
-            dirname( TRADEPRESS_PRO_BASENAME ) . '/languages'
+            dirname( TRADERSEES_BASENAME ) . '/languages'
         );
     }
 
@@ -128,7 +128,7 @@ final class TradePress_Pro {
      * @return string
      */
     public function plugin_url() {
-        return untrailingslashit( plugins_url( '/', TRADEPRESS_PRO_FILE ) );
+        return untrailingslashit( plugins_url( '/', TRADERSEES_FILE ) );
     }
 
     /**
@@ -137,6 +137,6 @@ final class TradePress_Pro {
      * @return string
      */
     public function plugin_path() {
-        return untrailingslashit( plugin_dir_path( TRADEPRESS_PRO_FILE ) );
+        return untrailingslashit( plugin_dir_path( TRADERSEES_FILE ) );
     }
 }
